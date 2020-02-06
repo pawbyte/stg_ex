@@ -11,8 +11,6 @@ Code Example ( main.cpp):
 #include "stg_ex.h"
 
 
-//Make sure to include SDL2 into your compiler/build system for this to work.
-
 int main( int argc, char* args[] )
 {
     std::string hello_world = "Hello World, the sky is blue, the ocean is too!";
