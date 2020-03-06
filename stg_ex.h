@@ -51,29 +51,29 @@ namespace stg_ex
     bool char_is_alnum(char c, bool allowSpaces = false, bool allowUnderscores = false);
     bool char_is_alpha(char c, bool allowSpaces = false, bool allowUnderscores = false);
 
-    std::vector <std::string> divide_string_into_lines(std::string stringIn,int numbLines);
+    std::vector <std::string> divide_string_into_lines( const std::string str,int numbLines);
     std::string double_to_string(double in);
 
-    bool file_is_audio(std::string fileLocationIn);
-    bool file_is_font(std::string fileLocationIn);
-    bool file_is_image(std::string fileLocationIn);
-    bool file_is_video(std::string fileLocationIn);
+    bool file_is_audio(const std::string str_file_name);
+    bool file_is_font(const std::string str_file_name);
+    bool file_is_image(const std::string str_file_name);
+    bool file_is_video(const std::string str_file_name);
 
-    std::string file_to_dir(std::string fileNameIn);
+    std::string file_to_dir(const std::string new_file_name);
     std::string float_to_string(float in);
 
     std::string get_2digit_value_string(int numberIn);
 
-    std::string get_file_ext(std::string fileLocationIn);
-    std::string get_file_ext_last_dot(std::string fileLocationIn);
-    std::string get_file_noext(std::string fileLocationIn);
+    std::string get_file_ext(const std::string str_file_name);
+    std::string get_file_ext_last_dot(const std::string str_file_name);
+    std::string get_file_noext(const std::string str_file_name);
 
-    int get_leading_space_count(std::string strIn);
-    std::string get_local_from_global_file(std::string fullFilePath);
-    std::string get_path_from_file(std::string fullFilePath);
-    std::string get_short_filename(std::string fileNameIn, bool showExtension=false);
-    std::string get_substring(std::string strIn, int cStart = 0, int cLength =-1);
-    int get_trailing_space_count( std::string strIn);
+    int get_leading_space_count(const std::string strIn);
+    std::string get_local_from_global_file(const std::string str);
+    std::string get_path_from_file(const std::string str);
+    std::string get_short_filename(const std::string new_file_name, bool show_extension=false);
+    std::string get_substring(const std::string strIn, int cStart = 0, int cLength =-1);
+    int get_trailing_space_count( const std::string strIn);
 
     std::string int_to_string(int in);
     bool is_alnum(const std::string str, bool allowSpaces = false, bool allowUnderscores = false);
@@ -83,18 +83,18 @@ namespace stg_ex
     std::string split_first_string(std::string& s, std::string separator);
 
     bool string_contains(const std::string& hay, const std::string& needle);
-    int string_count(std::string str, std::string needle );
-    std::string string_digits(std::string str);
+    int string_count(const std::string str, std::string needle );
+    std::string string_digits(const std::string str);
     bool string_ends(const std::string& hay, const std::string& needle);
-    std::string string_letters(std::string str);
-    std::string string_lettersdigits(std::string str);
-    std::string string_lower(std::string str);
-    std::string string_upper(std::string str);
-    std::string string_repeat(std::string str,int repeatCount );
-    std::string string_replace_all(std::string str, std::string substr, std::string newstr);
+    std::string string_letters(const std::string str);
+    std::string string_lettersdigits(const std::string str);
+    std::string string_lower( const std::string str);
+    std::string string_upper(const std::string str);
+    std::string string_repeat( const std::string str,int repeatCount );
+    std::string string_replace_all( const std::string str, std::string substr, std::string newstr);
     bool string_starts(const std::string& hay, const std::string& needle);
 
-    bool string_to_bool(std::string value);
+    bool string_to_bool( const std::string value);
     float string_to_float( const std::string& s, float default_value = 0 );
     int string_to_int(const std::string& s, int default_value = 0);
 
@@ -103,7 +103,7 @@ namespace stg_ex
     std::string trim_right_inplace(std::string       s,const std::string& delimiters = " \f\n\r\t\v" );
     std::string trim_string(const std::string s, char c);
 
-    bool wrap_string( std::string strIn,std::vector < std::string > &strVector, int lineWidth = 256, int maxLines = -1);
+    bool wrap_string( const std::string strIn,std::vector < std::string > &strVector, int lineWidth = 256, int maxLines = -1);
 }
 
 #endif //stg_ex_h

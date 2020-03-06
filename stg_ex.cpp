@@ -81,11 +81,11 @@ namespace stg_ex
         return false;
     }
 
-    std::vector <std::string> divide_string_into_lines(std::string stringIn,int numbLines)
+    std::vector <std::string> divide_string_into_lines( const std::string str,int numbLines)
     {
         std::vector <std::string> returnVector;
         /*
-        int wholeLength= stringIn.size();
+        int wholeLength= str.size();
         if(numbLines>0)
         {
              int maxLengthForString = wholeLength/numbLines;
@@ -93,8 +93,8 @@ namespace stg_ex
              {
 
                   //divides the string into multiple two pieces
-                  std::string line_text_xx=stringIn.substr((i*maxLengthForString),(i+1)*maxLengthForString);
-                  std::string new_text_n=stringIn.substr((i*maxLengthForString),line_text_x.size()-(i*maxLengthForString));
+                  std::string line_text_xx=str.substr((i*maxLengthForString),(i+1)*maxLengthForString);
+                  std::string new_text_n=str.substr((i*maxLengthForString),line_text_x.size()-(i*maxLengthForString));
                   //checks for the first character in the string of both old and new
                   std::string firstForNew=new_text_n.substr(0,1);
                   std::string firstForNew2 = string_letters(firstForNew);
@@ -115,7 +115,7 @@ namespace stg_ex
         }
         else
         {
-            returnVector.push_back(stringIn);
+            returnVector.push_back(str);
         }
         */
         return returnVector;
@@ -128,58 +128,58 @@ namespace stg_ex
         return converter.str();
     }
 
-    bool file_is_audio(std::string fileLocationIn)
+    bool file_is_audio( const std::string str_file_name)
     {
-        std::string foundExt = get_file_ext(fileLocationIn);
-        if( foundExt=="aac" || foundExt=="mp3"  || foundExt=="ogg"  || foundExt=="wav" )
+        std::string str_found_extension = get_file_ext(str_file_name);
+        if( str_found_extension=="aac" || str_found_extension=="mp3"  || str_found_extension=="ogg"  || str_found_extension=="wav" )
         {
             return true;
         }
         return false;
     }
 
-    bool file_is_font(std::string fileLocationIn)
+    bool file_is_font( const std::string str_file_name)
     {
-        std::string foundExt = get_file_ext(fileLocationIn);
-        if( foundExt=="eot" || foundExt=="svg"  || foundExt=="ttf"  || foundExt=="woff" || foundExt=="woff2" )
+        std::string str_found_extension = get_file_ext(str_file_name);
+        if( str_found_extension=="eot" || str_found_extension=="svg"  || str_found_extension=="ttf"  || str_found_extension=="woff" || str_found_extension=="woff2" )
         {
             return true;
         }
         return false;
     }
 
-    bool file_is_image(std::string fileLocationIn)
+    bool file_is_image( const std::string str_file_name)
     {
-        std::string foundExt = get_file_ext(fileLocationIn);
-        if( foundExt=="bmp" || foundExt=="gif"  ||foundExt=="jpg"  || foundExt=="jpeg"  || foundExt=="png" )
+        std::string str_found_extension = get_file_ext(str_file_name);
+        if( str_found_extension=="bmp" || str_found_extension=="gif"  ||str_found_extension=="jpg"  || str_found_extension=="jpeg"  || str_found_extension=="png" )
         {
             return true;
         }
         return false;
     }
 
-    bool file_is_video(std::string fileLocationIn)
+    bool file_is_video( const std::string str_file_name)
     {
-        std::string foundExt = get_file_ext(fileLocationIn);
-        if( foundExt=="mp4" || foundExt=="ogg" || foundExt=="webm" )
+        std::string str_found_extension = get_file_ext(str_file_name);
+        if( str_found_extension=="mp4" || str_found_extension=="ogg" || str_found_extension=="webm" )
         {
             return true;
         }
         return false;
     }
 
-    std::string file_to_dir(std::string fileNameIn)
+    std::string file_to_dir( const std::string str_file_name)
     {
-        if(!fileNameIn.empty())
+        if(!str_file_name.empty())
         {
 
-            return fileNameIn.substr(0,fileNameIn.find(".") );
+            return str_file_name.substr(0,str_file_name.find(".") );
         }
         else
         {
             return "";
         }
-        return fileNameIn;
+        return str_file_name;
     }
 
     std::string float_to_string(float in)
@@ -204,124 +204,125 @@ namespace stg_ex
         }
     }
 
-    std::string get_file_ext(std::string fileLocationIn)
+    std::string get_file_ext( const std::string str_file_name)
     {
-        if( (int)fileLocationIn.size() > 0)
+        if( (int)str_file_name.size() > 0)
         {
-            int dotPos = fileLocationIn.find_first_of(".");
+            int dotPos = str_file_name.find_first_of(".");
             if(dotPos != (int)std::string::npos)
             {
-                return fileLocationIn.substr( dotPos+ 1);
+                return str_file_name.substr( dotPos+ 1);
             }
         }
         return "";
     }
 
-    std::string get_file_ext_last_dot(std::string fileLocationIn)
+    std::string get_file_ext_last_dot( const std::string str_file_name)
     {
-        if( (int)fileLocationIn.size() > 0)
+        if( (int)str_file_name.size() > 0)
         {
-            int dotPos = fileLocationIn.find_last_of(".");
+            int dotPos = str_file_name.find_last_of(".");
             if(dotPos != (int)std::string::npos)
             {
-                return fileLocationIn.substr( dotPos+ 1);
+                return str_file_name.substr( dotPos+ 1);
             }
         }
         return "";
     }
 
-    std::string get_file_noext(std::string fileLocationIn)
+    std::string get_file_noext( const std::string str_file_name)
     {
-        if( fileLocationIn.size() > 0)
+        if( str_file_name.size() > 0)
         {
-            int dotPos = fileLocationIn.find_first_of(".");
+            int dotPos = str_file_name.find_first_of(".");
             if(dotPos != (int)std::string::npos)
             {
-                return fileLocationIn.substr( 0,dotPos);
+                return str_file_name.substr( 0,dotPos);
             }
             else
             {
-                return fileLocationIn;
+                return str_file_name;
             }
         }
         return "";
     }
-    std::string get_local_from_global_file(std::string fullFilePath)
+
+    std::string get_local_from_global_file( const std::string str)
     {
-        if( fullFilePath.size()>0)
+        if( str.size()>0)
         {
             size_t found;
-            found=fullFilePath.find_last_of("/\\");
+            found=str.find_last_of("/\\");
             if( found != std::string::npos)
             {
-                std::string dString = fullFilePath.substr(0,found);
-                std::string rString = fullFilePath.substr(found+1);
+                std::string dString = str.substr(0,found);
+                std::string rString = str.substr(found+1);
                 return rString;
             }
         }
-        return fullFilePath;
+        return str;
     }
 
-    std::string get_path_from_file(std::string fullFilePath)
+    std::string get_path_from_file( const std::string str)
     {
-        if( fullFilePath.size()>0)
+        if( str.size()>0)
         {
             size_t found;
-            found=fullFilePath.find_last_of("/\\");
+            found=str.find_last_of("/\\");
             if( found != std::string::npos)
             {
-                std::string rString = fullFilePath.substr(0,found);
+                std::string rString = str.substr(0,found);
                 return rString+"\\";
             }
         }
-        return fullFilePath;
+        return str;
     }
 
-    std::string get_short_filename(std::string fileNameIn,bool showExtension)
+    std::string get_short_filename(  const std::string str_file_name,bool show_extension)
     {
-        if(!fileNameIn.empty())
+        if(!str_file_name.empty())
         {
-            if(showExtension)
+            if(show_extension)
             {
-                return fileNameIn.substr(fileNameIn.find_last_of("\\/") +1);
+                return str_file_name.substr(str_file_name.find_last_of("\\/") +1);
             }
             else
             {
-                return fileNameIn.substr(fileNameIn.find_last_of("\\/")+1,fileNameIn.find(".") );
+                return str_file_name.substr(str_file_name.find_last_of("\\/")+1,str_file_name.find(".") );
             }
         }
         else
         {
             return "";
         }
-        return fileNameIn;
+        return str_file_name;
     }
 
-    std::string get_substring(std::string strIn, int cStart, int cLength)
+    std::string get_substring( const std::string str, int cStart, int cLength)
     {
-        int strSize = (int)strIn.size();
+        int strSize = (int)str.size();
         if(  strSize > 0 && strSize > cStart && cStart >= 0)
         {
             if( strSize > cStart+cLength && cLength > 0)
             {
-                return strIn.substr(cStart,cLength);
+                return str.substr(cStart,cLength);
             }
             else if( cLength!=0 )
             {
-                return strIn.substr(cStart);
+                return str.substr(cStart);
             }
         }
         return "";
     }
 
-    int get_leading_space_count(std::string strIn)
+    int get_leading_space_count(std::string str)
     {
-        if( (int)strIn.size() > 0)
+        if( (int)str.size() > 0)
         {
             int spacesCounted = 0;
-            for( int i = 0; i < (int)strIn.size(); i++)
+            for( int i = 0; i < (int)str.size(); i++)
             {
-                if( strIn[i]==' ')
+                if( str[i]==' ')
                 {
                     spacesCounted++;
                 }
@@ -335,14 +336,14 @@ namespace stg_ex
         return 0;
     }
 
-    int get_trailing_space_count( std::string strIn)
+    int get_trailing_space_count( std::string str)
     {
-        if( (int)strIn.size() > 0)
+        if( (int)str.size() > 0)
         {
             int spacesCounted = 0;
-            for( int i = (int)strIn.size()-1; i>=0; i--)
+            for( int i = (int)str.size()-1; i>=0; i--)
             {
-                if( strIn[i]==' ')
+                if( str[i]==' ')
                 {
                     spacesCounted++;
                 }
@@ -363,7 +364,7 @@ namespace stg_ex
         return converter.str();
     }
 
-        int split_first_int(std::string &s, char separator)
+    int split_first_int(std::string &s, char separator)
     {
         size_t seppos = s.find_first_of(separator);
         if (seppos == std::string::npos)
@@ -617,7 +618,7 @@ namespace stg_ex
         return trim_left_inplace(trim_right_inplace(s, delimiters), delimiters);
     }
 
-    bool wrap_string( std::string strIn,std::vector < std::string > &strVector, int lineWidth, int maxLines)
+    bool wrap_string( const std::string str,std::vector < std::string > &strVector, int lineWidth, int maxLines)
     {
         if( lineWidth <= 0)
         {
@@ -625,45 +626,40 @@ namespace stg_ex
         }
 
         strVector.clear();
-        //report_message("Wrapping text [ "+strIn+" ] .");
-        if( (int) strIn.size() >= lineWidth )
+        if( (int) str.size() >= lineWidth )
         {
             int prevSpacePos = 0;
             int prevSavedPos = 0;
             int spacePos = 0;
             int countedStrings = 0;
-            while( (int)strIn.size() > spacePos && ( maxLines <=0 || ( maxLines > 0 && countedStrings < maxLines ) ) )
+            while( (int)str.size() > spacePos && ( maxLines <=0 || ( maxLines > 0 && countedStrings < maxLines ) ) )
             {
-                spacePos=strIn.find(" ",prevSpacePos);
+                spacePos=str.find(" ",prevSpacePos);
                 if( spacePos!=(int)std::string::npos )
                 {
                     if( spacePos-prevSavedPos >= lineWidth )
                     {
                         if( prevSpacePos > prevSavedPos)
                         {
-                            //report_message("Wrapped text (1).");
-                            strVector.push_back( strIn.substr(prevSavedPos,prevSpacePos - prevSavedPos )  );
+                            strVector.push_back( str.substr(prevSavedPos,prevSpacePos - prevSavedPos )  );
                             prevSavedPos = prevSpacePos;
                             prevSpacePos++;
                         }
                         else
                         {
-                            //report_message("Wrapped text (2).");
-                            strVector.push_back( strIn.substr(prevSavedPos,1 )  );
+                            strVector.push_back( str.substr(prevSavedPos,1 )  );
                             prevSpacePos = prevSavedPos+1;
                         }
                         countedStrings++;
                     }
                     else
                     {
-                        //report_message("Unable to find space @"+ int_to_string(prevSpacePos)+" / "+ int_to_string(spacePos) );
                         prevSpacePos = spacePos+1;
                     }
                 }
                 else
                 {
-                    strVector.push_back( strIn.substr(prevSavedPos,lineWidth)  );
-                    //report_message("Wrapped text (3)"+strIn.substr(prevSavedPos,lineWidth)+".");
+                    strVector.push_back( str.substr(prevSavedPos,lineWidth)  );
                     countedStrings++;
                     prevSpacePos = prevSavedPos+lineWidth+1;
                     prevSavedPos = prevSpacePos;
@@ -674,7 +670,7 @@ namespace stg_ex
         }
         if( (int)strVector.size() ==0)
         {
-            strVector.push_back( strIn );
+            strVector.push_back( str );
             return false;
         }
         return false;
