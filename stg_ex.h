@@ -40,10 +40,6 @@ SOFTWARE.
 #include <vector>
 #include <sstream>
 #include <iostream>
-#include <fstream>
-#include <typeinfo>
-#include <ctime>
-#include <cstdlib>
 
 
 namespace stg_ex
