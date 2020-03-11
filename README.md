@@ -9,14 +9,15 @@ Code Example ( main.cpp):
 
 
 #include "stg_ex.h"
+#include <iostream> //used to use std::cout to print messages
 
 
 int main( int argc, char* args[] )
 {
     std::string hello_world = "Hello World, the sky is blue, the ocean is too!";
     
-    hello_world = stx_ex::string_replace_all( hello_world,"ocean", "my tears when coding");
-
+    hello_world = stx_ex::string_replace_all( hello_world,"the ocean", "my tears when coding");
+    std::cout << hello_world << std::endl;
     return 1;
 }
 
